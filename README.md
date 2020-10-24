@@ -226,8 +226,6 @@ school_sum.style.format({'Total Students': '{:}',
 top_five = school_sum.sort_values("% Overall Passing", ascending = False)
 
 
-#formatting cells
-
 top_five.head().style.format({"Total Students": '{:}',
                            "Total School Budget": "${:,.2f}", 
                            "Per Student Budget": "${:.2f}", 
@@ -247,8 +245,6 @@ top_five.head().style.format({"Total Students": '{:}',
 
 
 bottom_five = school_sum.sort_values("% Overall Passing", ascending = True)
-
-#formatting cells
 
 bottom_five.head().style.format({"Total Students": '{:}',
                            "Total School Budget": "${:,.2f}", 
@@ -343,13 +339,13 @@ reading_scores.style.format({"9th": '{:.6f}',
 #   * % Passing Reading
 #   * Overall Passing Rate (Average of the above two)
 
-# In[12]:
+# In[11]:
 
 
 # create spending bins
 
-bins = [0,585, 630, 645, 999999]
-group_name = ['< $585', "$585 - 629", "$630 - 644", "$645-675"]
+bins = [0,589.999, 629.999, 644.999, 999999]
+group_name = ['< $584', "$585 - 629", "$630 - 644", "$645-675"]
 completedata_df["spending_bins"] = pd.cut(completedata_df["budget"]/completedata_df["size"], bins, labels = group_name)
 
 #group by spending
@@ -400,7 +396,7 @@ scores_by_spend.style.format({'Average Math Score': '{:.2f}',
 
 # ## Scores by School Size
 
-# In[13]:
+# In[12]:
 
 
 # create size bins
@@ -451,7 +447,7 @@ scores_by_size.style.format({"Average Math Score": '{:.6f}',
 
 # * Perform the same operations as above, based on school type
 
-# In[14]:
+# In[13]:
 
 
 # group by type of school
@@ -492,4 +488,10 @@ scores_by_type.style.format({"Average Math Score": '{:.6f}',
                               "% Passing Math": '{:.6f}', 
                               "% Passing Reading":'{:.6f}', 
                               "% Overall Passing": '{:.6f}'})
+
+
+# In[ ]:
+
+
+
 
